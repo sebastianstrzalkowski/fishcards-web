@@ -18,6 +18,8 @@ public class MainView extends UI {
     protected void init(VaadinRequest vaadinRequest) {
         setMainLayout();
         setHeader();
+        setForm();
+
     }
 
     public void setMainLayout(){
@@ -41,5 +43,19 @@ public class MainView extends UI {
 
         headerLayout.addComponents(title);
         mainLayout.addComponent(headerLayout);
+    }
+
+    public void setForm(){
+        HorizontalLayout formLayout = new HorizontalLayout();
+        formLayout.setMargin(true);
+        formLayout.setSpacing(true);
+
+        TextField wordTextField = new TextField();
+        wordTextField.setValue("Tutaj wpisz słowo");
+        wordTextField.setWidth("80%");
+        Label commentaryLabel = new Label("Tutaj pojawi się znaczenie");
+
+        formLayout.addComponents(wordTextField,commentaryLabel);
+        mainLayout.addComponent(formLayout);
     }
 }
