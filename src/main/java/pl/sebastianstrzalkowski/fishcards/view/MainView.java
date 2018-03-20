@@ -19,6 +19,7 @@ public class MainView extends UI {
         setMainLayout();
         setHeader();
         setForm();
+        setButtons();
 
     }
 
@@ -57,5 +58,18 @@ public class MainView extends UI {
 
         formLayout.addComponents(wordTextField,commentaryLabel);
         mainLayout.addComponent(formLayout);
+    }
+
+    public void setButtons(){
+        HorizontalLayout buttonsLayout = new HorizontalLayout();
+        buttonsLayout.setMargin(true);
+        buttonsLayout.setSpacing(true);
+
+        Button check = new Button("Sprawdź");
+        Button next = new Button("Następna");
+        Button iCan = new Button("Umiem");
+
+        buttonsLayout.addComponents(check,next,iCan);
+        mainLayout.addComponent(buttonsLayout);
     }
 }
