@@ -1,67 +1,42 @@
 package pl.sebastianstrzalkowski.fishcards.models;
 
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity // This tells Hibernate to make a table out of this class
 public class FishCard {
-    String word;
-    String commentary;
-    int index;
-    Boolean can;
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private Integer id;
 
-    public FishCard(){};
+    private String slowo;
 
-    public Boolean getCan() {
-        return can;
+    private String komentarz;
+
+    public Integer getId() {
+        return id;
     }
 
-    public void setCan(Boolean can) {
-
-        this.can = can;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public FishCard(String word, String commentary, int index){
-        this.word = word;
-        this.commentary = commentary;
-        this.index = index;
-        this.can = false;
-
-    }
-    public FishCard(String word, String commentary, int index, Boolean can){
-        this.word = word;
-        this.commentary = commentary;
-        this.index = index;
-        this.can = can;
-
+    public String getSlowo() {
+        return slowo;
     }
 
-    public String getWord() {
-        return word;
+    public void setSlowo(String slowo) {
+        this.slowo = slowo;
     }
 
-    public String getCommentary() {
-        return commentary;
+    public String getKomentarz() {
+        return komentarz;
     }
 
-    public int getIndex() {
-        return index;
-    }
-
-
-
-    @Override
-    public String toString() {
-        return "FishCard{" +
-                "word='" + word + '\'' +
-                ", commentary='" + commentary + '\'' +
-                ", index=" + index +
-                ", can=" + can +
-                '}';
-    }
-
-    public void setWord(String word) {
-        this.word = word;
-    }
-
-    public void setCommentary(String commentary) {
-        this.commentary = commentary;
+    public void setKomentarz(String komentarz) {
+        this.komentarz = komentarz;
     }
 }
